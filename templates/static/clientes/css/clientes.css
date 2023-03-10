@@ -9,6 +9,13 @@
 
 }
 
+.card-dashboard:hover{
+
+    background-color: white;
+    color: var(--main-color);
+    transition: 0.05s ease;
+}
+
 .text-card{
 
     font-size: 25px;
@@ -24,10 +31,25 @@
 
 }
 
+.btn-add-carros:hover{
+
+    transition: 0.05s ease;
+    background-color: white;
+    border: 3px solid white ;
+    color: var(--contrast-color);
+}
+
 .btn-principal{
     color:white;
     border: none;
     background-color: var(--dark-color);
     padding: 5px;
     font-size: 30px;
+}
+
+.btn-principal:hover{
+
+    background-color: white;
+    color: var(--dark-color);
+    border: 1px solid white;
 }
