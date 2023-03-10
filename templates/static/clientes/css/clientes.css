@@ -6,7 +6,6 @@
     margin-top: 40px;
     text-align: center;
     padding: 20px;
-
 }
 
 .card-dashboard:hover{
@@ -52,4 +51,22 @@
     background-color: white;
     color: var(--dark-color);
     border: 1px solid white;
+}
+
+.form-control {
+
+    margin-bottom: 5px;
+}
+
+@media (max-width: 760px) {
+    .card-dashboard {
+        max-width: 47%;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .card-dashboard {
+        max-width: 170px;
+    }
 }
