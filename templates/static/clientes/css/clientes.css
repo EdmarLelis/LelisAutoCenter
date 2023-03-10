@@ -74,3 +74,10 @@
         max-width: 170px;
     }
 }
+
+@media (max-width: 451px) {
+
+    .card-dashboard {
+        min-width: 90%;
+    }
+}
