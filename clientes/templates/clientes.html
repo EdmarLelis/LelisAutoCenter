@@ -25,7 +25,7 @@
         </div>
 
         <div class="adicionar-cliente">
-            <form action="{% url 'clientes' %}">
+            <form action="{% url 'clientes' %}" method="POST">{% csrf_token %}
                 </br>
                 <h5 class='titulo'>Adicionar Cliente:</h5>
                 </br>

@@ -12,7 +12,7 @@ class Cliente(models.Model):
 class Carro(models.Model):
     carro = models.CharField(max_length=80)
     placa = models.CharField(max_length=7)
-    ano = models.IntegerField(max_length=4)
+    ano = models.IntegerField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     consertos = models.IntegerField(default=0)
     
