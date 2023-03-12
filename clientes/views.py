@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Cliente
+from .models import Cliente, Carro
+import re
 
 
 # Create your views here.
@@ -18,22 +19,32 @@ def clientes(request):
         placas = request.POST.getlist('placa')
         anos = request.POST.getlist('ano')
         
-        print(nome)
         
-        print(carros)
+        if not re.fullmatch(re.compile(r'/^([0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}|[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2})$/'), cpf):
+            return render(request, 'clientes.html', {'nome' : nome, 'sobrenome': sobrenome, 'email': email, 'carros': zip(carros, placas, anos)})
         
-        # cliente = Cliente(
-        #     nome = nome,
-        #     sobrenome = sobrenome,
-        #     email = email,
-        #     cpf = cpf
-        # )
+        cliente = Cliente.objects.filter(cpf= cpf)
         
-        #cliente.save()
+        if cliente.exists():
+            return render(request, 'clientes.html', {'nome' : nome, 'sobrenome': sobrenome, 'email': email, 'carros': zip(carros, placas, anos)})
+        
+        if not re.fullmatch(re.compile(r'^[a-zA-Z0-9._-]+@([a-z0-9]+)(\.[a-z]{2,3})+$'), email):
+            return render(request, 'clientes.html', {'nome' : nome, 'sobrenome': sobrenome, 'cpf': cpf, 'carros': zip(carros, placas, anos)})
+        
+        cliente = Cliente(
+            nome = nome,
+            sobrenome = sobrenome,
+            email = email,
+            cpf = cpf
+        )
+        
+        cliente.save()
         
         
-        # x = list(zip(carros, placas, anos))
-        
-        # print(x)
+        for carro, placa , ano in zip(carros, placas, anos):
+            car = Carro(carro=carro, placa=placa, ano=ano, cliente=cliente)
+            car.save()
+            
+        #TODO: remover carros       
         
         return HttpResponse('teste')
