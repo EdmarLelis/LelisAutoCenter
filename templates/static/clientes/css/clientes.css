@@ -9,7 +9,7 @@
 }
 
 .card-dashboard:hover{
-
+    cursor: pointer;
     background-color: white;
     color: var(--main-color);
     transition: 0.05s ease;
@@ -85,10 +85,15 @@ div.btn-remove :hover{
 }
 
 span#btn-remove{
+    cursor: pointer;
     max-width: 50px;
     max-height: 40px;
     font-size: 25px;
     text-align: center;
+}
+
+#att_cliente{
+    display: none;
 }
 
 @media (max-width: 760px) {

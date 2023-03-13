@@ -14,17 +14,17 @@
 
         <div class='row'  id='options'>
 
-            <div class='col-md card-dashboard'>
+            <div onclick='exibir_form("1")' class='col-md card-dashboard'>
                 <p class='text-card'>Adicionar Clientes</p>
             </div>
 
-            <div class='col-md card-dashboard'>
+            <div onclick='exibir_form("2")' class='col-md card-dashboard'>
                 <p class='text-card'>Atualizar Clientes</p>
             </div>
 
         </div>
 
-        <div class="adicionar-cliente">
+        <div class="adicionar-cliente" id="adicionar-cliente">
             <form action="{% url 'clientes' %}" method="POST">{% csrf_token %}
                 </br>
                 <h5 class='titulo'>Adicionar Cliente:</h5>
@@ -88,6 +88,10 @@
                 
             </form>
             
+        </div>
+
+        <div id="att_cliente">
+            teste
         </div>
 
     </div>
