@@ -92,6 +92,10 @@ span#btn-remove{
     text-align: center;
 }
 
+#add {
+    border: 2px solid white;
+}
+
 #att_cliente{
     display: none;
 }
